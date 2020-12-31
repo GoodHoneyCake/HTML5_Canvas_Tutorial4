@@ -23,7 +23,7 @@ class App {
   animate() {
     window.requestAnimationFrame(this.animate.bind(this));
 
-    this.ctx.clearRect(0, 0, this.stageWidth, this.stageHeight);
+    this.ctx.clearRect(0, 0, this.stage);
   }
 }
 

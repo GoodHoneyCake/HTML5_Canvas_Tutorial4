@@ -19,12 +19,6 @@ class App {
     this.canvas.height = this.stageHeight * this.pixelRatio;
     this.ctx.scale(this.pixelRatio, this.pixelRatio);
   }
-
-  animate() {
-    window.requestAnimationFrame(this.animate.bind(this));
-
-    this.ctx.clearRect(0, 0, this.stageWidth, this.stageHeight);
-  }
 }
 
 window.onload = () => {
