@@ -28,13 +28,15 @@ export class Polygon {
   }
   animate(ctx, moveX) {
     ctx.save();
+    ctx.fillStyle = "#000";
+    // ctx.beginPath();
 
     const angle = PI2 / this.sides;
     const angle2 = PI2 / 4;
 
     ctx.translate(this.x, this.y);
 
-    this.rotate += moveX * 0.008;
+    this.rotate -= moveX * 0.008;
     ctx.rotate(this.rotate);
 
     for (let i = 0; i < this.sides; i++) {
@@ -42,13 +44,12 @@ export class Polygon {
       const y = this.radius * Math.sin(angle * i);
 
       ctx.save();
-      ctx.fillStyle = COLORS[i];
       ctx.translate(x, y);
       ctx.rotate((((360 / this.sides) * i + 45) * Math.PI) / 180);
       ctx.beginPath();
       for (let j = 0; j < 4; j++) {
-        const x2 = 160 * Math.cos(angle2 * j);
-        const y2 = 160 * Math.sin(angle2 * j);
+        const x2 = 80 * Math.cos(angle2 * j);
+        const y2 = 80 * Math.sin(angle2 * j);
         j == 0 ? ctx.moveTo(x2, y2) : ctx.lineTo(x2, y2);
       }
       ctx.fill();
@@ -56,6 +57,8 @@ export class Polygon {
       ctx.restore();
     }
 
+    // ctx.fill();
+    // ctx.closePath();
     ctx.restore();
   }
 }

@@ -30,9 +30,9 @@ class App {
 
     this.polygon = new Polygon(
       this.stageWidth / 2,
-      this.stageHeight + this.stageHeight / 4,
-      this.stageHeight / 1.5,
-      12
+      this.stageHeight / 2,
+      this.stageHeight / 3,
+      3
     );
   }
 
@@ -41,8 +41,7 @@ class App {
 
     this.ctx.clearRect(0, 0, this.stageWidth, this.stageHeight);
 
-    this.moveX *= 0.92;
-    this.polygon.animate(this.ctx, this.moveX);
+    this.polygon.animate(this.ctx);
   }
 
   onDown(e) {
@@ -56,9 +55,7 @@ class App {
       this.offsetX = e.clientX;
     }
   }
-  onUp(e) {
-    this.isDown = false;
-  }
+  onUp(e) {}
 }
 
 window.onload = () => {
